@@ -15,3 +15,6 @@ def create_app():
     app.register_blueprint(main_blueprint)
 
     return app
+
+# Create the app instance for Gunicorn
+app = create_app()
