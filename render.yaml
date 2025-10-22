@@ -3,33 +3,5 @@ services:
   - type: web
     name: ghpostserver
     env: python
-<<<<<<< HEAD
-    buildCommand: "./start.sh && pip install -r requirements.txt"
-    startCommand: "gunicorn --workers 4 --bind 0.0.0.0:$PORT run:app"
-    envVars:
-      - key: GPGPS_API_URL
-        value: "https://api.ghanapostgps.com/v2/PublicGPGPSAPI.aspx"
-      - key: GPGPS_AUTHORIZATION
-        value: "QW5kcm9pZEtleTpTV3RsYm01aFFGWnZhMkZqYjIwMFZRPT0="
-      - key: GPGPS_ASAASE_USER
-        value: "SWtlbm5hQFZva2Fjb200VQ=="
-      - key: GPGPS_LANGUAGE_CODE
-        value: "en"
-      - key: GPGPS_LANGUAGE
-        value: "English"
-      - key: GPGPS_DEVICE_ID
-        value: "AndroidKey"
-      - key: GPGPS_ANDROID_CERT
-        value: "49:DD:00:18:04:D3:47:D0:77:44:A0:B3:93:47:4F:BE:B6:7E:D7:67"
-      - key: GPGPS_ANDROID_PACKAGE
-        value: "com.ghanapostgps.ghanapost"
-      - key: GPGPS_COUNTRY
-        value: "GH"
-      - key: GPGPS_COUNTRY_NAME
-        value: "Ghana"
-      - key: PYTHON_VERSION
-        value: "3.10.0" # Or your desired python version
-=======
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn --workers 4 --bind 0.0.0.0:$PORT wsgi:app"
->>>>>>> 01331f0 (Fixed gunicorn app:app deployment issues)
