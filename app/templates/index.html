@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GhanaPost GPS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>GhanaPost GPS Lookup</h1>
+        <div class="form-container">
+            <div class="form-section">
+                <h2>Get Location from Digital Address</h2>
+                <form id="get-location-form">
+                    <input type="text" id="digital-address" placeholder="Enter Digital Address (e.g., GA-123-4567)" required>
+                    <button type="submit">Get Location</button>
+                </form>
+            </div>
+            <div class="form-section">
+                <h2>Get Digital Address from Coordinates</h2>
+                <form id="get-address-form">
+                    <input type="text" id="latitude" placeholder="Enter Latitude" required>
+                    <input type="text" id="longitude" placeholder="Enter Longitude" required>
+                    <button type="submit">Get Address</button>
+                </form>
+            </div>
+        </div>
+        <div id="result-container">
+            <h2>Result</h2>
+            <pre id="result"></pre>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
