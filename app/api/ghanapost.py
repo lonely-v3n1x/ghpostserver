@@ -1,3 +1,9 @@
+import logging
+
+# Add logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 from dataclasses import dataclass
 from typing import Tuple, Optional, Dict, Any
 from urllib.parse import urlencode
@@ -71,11 +77,14 @@ def api_request(method: str, params: Params, payload: Optional[str]) -> str:
     for h in CorsByPass:
         headers[h] = "127.0.0.1"
 
+    logger.info(f"Making {method} request to {params.ApiURL} with payload: {payload}")
+
     try:
         resp = requests.request(method=method.upper(), url=params.ApiURL, data=payload, headers=headers, timeout=30)
         resp.raise_for_status()
         return resp.text
     except Exception as e:
+        logger.error(f"Request failed: {e}")
         return str(e)
 
 def get_location(code: str, defaults: Params) -> str:

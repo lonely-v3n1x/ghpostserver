@@ -18,4 +18,4 @@ fi
 # Activate the virtual environment and run the application
 echo "Activating virtual environment and starting the application..."
 source venv/bin/activate
-python run.py
+python wsgi.py
