@@ -5,6 +5,7 @@
 test_local.sh
 test_local.py
 test_app.py
+start.sh
 
 # Python artifacts
 __pycache__/
