@@ -1,14 +1,12 @@
 from flask import Flask
 from flask_cors import CORS
-from dotenv import load_dotenv
 import os
 
 def create_app():
     app = Flask(__name__)
     CORS(app)  # This will enable CORS for all routes
 
-    # Load environment variables from .env file
-    load_dotenv()
+    # Note: On Vercel, environment variables are set automatically, no need for load_dotenv
 
     # Register blueprints
     from .routes import main as main_blueprint
@@ -16,5 +14,5 @@ def create_app():
 
     return app
 
-# Create the app instance for Gunicorn
+# Create the app instance for Gunicorn or Vercel
 app = create_app()

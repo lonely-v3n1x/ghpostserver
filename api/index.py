@@ -1,4 +1,5 @@
 from wsgi import app
 
-# Vercel expects the app to be exported
-# For Flask, this allows Vercel to run it as a serverless function
+# Vercel handler for Flask app
+def handler(environ, start_response):
+    return app(environ, start_response)
